@@ -11,6 +11,7 @@ urlpatterns = (
         path("login", auth_views.LoginView.as_view(), name="login"),
         path("logout", auth_views.LogoutView.as_view(), name="logout"),
         path("gtdadmin/", admin.site.urls),
+        path("admin/", admin.site.urls),
         path("todo/", include("todo.urls", namespace="todo")),
     ]
     # Static media in DEBUG mode:
