@@ -16,7 +16,7 @@
         <option value="Scot Hacker &lt;shacker@birdhouse.org&gt;" />
       </list>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/LJTodo" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -140,7 +140,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717236103422</updated>
       <workItem from="1717236104588" duration="132000" />
-      <workItem from="1717400758112" duration="3103000" />
+      <workItem from="1717400758112" duration="3596000" />
     </task>
     <task id="LOCAL-00001" summary="Update requirements.txt">
       <option name="closed" value="true" />
@@ -175,7 +175,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/LJTodo$setup.coverage" NAME="setup Coverage Results" MODIFIED="1717401981157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LJTodo$local.coverage" NAME="local Coverage Results" MODIFIED="1717402392749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/templates" />
-    <SUITE FILE_PATH="coverage/LJTodo$manage.coverage" NAME="manage Coverage Results" MODIFIED="1717404274766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LJTodo$manage.coverage" NAME="manage Coverage Results" MODIFIED="1717404293555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LJTodo$python_manage_py_migrate_todo.coverage" NAME="python manage.py migrate todo Coverage Results" MODIFIED="1717401966813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
