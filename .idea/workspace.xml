@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92743dff-7202-4a2f-b50f-0cba58583dd9" name="Changes" comment="Update requirements.txt">
-      <change beforePath="$PROJECT_DIR$/.idea/LJTodo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LJTodo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +176,7 @@
       <updated>1717236103422</updated>
       <workItem from="1717236104588" duration="132000" />
       <workItem from="1717400758112" duration="3849000" />
-      <workItem from="1717405066117" duration="1132000" />
+      <workItem from="1717405066117" duration="1397000" />
     </task>
     <task id="LOCAL-00001" summary="Update requirements.txt">
       <option name="closed" value="true" />
