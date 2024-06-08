@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="92743dff-7202-4a2f-b50f-0cba58583dd9" name="Changes" comment="Update requirements.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/开源软件复用说明.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/开源软件复用说明.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +183,7 @@
       <workItem from="1717400758112" duration="3849000" />
       <workItem from="1717405066117" duration="1471000" />
       <workItem from="1717503082670" duration="5132000" />
-      <workItem from="1717851342252" duration="2940000" />
+      <workItem from="1717851342252" duration="3596000" />
     </task>
     <task id="LOCAL-00001" summary="Update requirements.txt">
       <option name="closed" value="true" />
