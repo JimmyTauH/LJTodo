@@ -15,6 +15,7 @@ urlpatterns = (
         path("gtdadmin/", admin.site.urls),
         path("admin/", admin.site.urls),
         path("todo/", include("todo.urls", namespace="todo")),
+        path("calender/", include("calender.urls", namespace="calender")), # if has calender app
     ]
     # Static media in DEBUG mode:
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
