@@ -9,9 +9,16 @@ from django.core import mail
 from django.template.loader import render_to_string
 
 from todo.defaults import defaults
-from todo.models import Attachment, Comment, Task
+from todo.models import Attachment, Comment, Task, ManagerList
 
 log = logging.getLogger(__name__)
+
+def manager_checker(user, group):
+    try:
+        ManagerList.objects.get(manager = user, group = group)
+        return True
+    except:
+        return False
 
 
 def staff_check(user):

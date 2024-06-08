@@ -10,3 +10,7 @@ from todo.views.reorder_tasks import reorder_tasks  # noqa: F401
 from todo.views.search import search  # noqa: F401
 from todo.views.task_detail import task_detail  # noqa: F401
 from todo.views.toggle_done import toggle_done  # noqa: F401
+from todo.views.create_group import create_group
+from todo.views.del_group import del_group
+from todo.views.add_member import add_member
+from todo.views.del_member import del_member

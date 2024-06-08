@@ -29,5 +29,6 @@ def login(request):
         user = auth.authenticate(username=username, password=password)        
     if user is not None:            
         auth.login(request, user)  #这里做了登录 
+        print(user.id)
         return redirect('todo:lists')       
     return render(request, "registration/signin.html")

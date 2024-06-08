@@ -188,7 +188,7 @@ class Attachment(models.Model):
 
 
 
-# class Magager(models.Model):
-#     username = models.ForeignKey(User, on_delete=models.CASCADE)
-#     group = models.ForeignKey(Group, on_delete=models.CASCADE)
+class ManagerList(models.Model):
+    manager = models.ForeignKey(User, on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
     

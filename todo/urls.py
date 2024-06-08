@@ -29,6 +29,10 @@ urlpatterns = [
     path(
         "attachment/remove/<int:attachment_id>/", views.remove_attachment, name="remove_attachment"
     ),
+    path("create_group", views.create_group, name = "create_group"),
+    path("del_group", views.del_group, name = "del_group"),
+    path("add_member", views.add_member, name = "add_member"),
+    path("del_member", views.del_member, name = "del_member"),
 ]
 
 if HAS_TASK_MERGE:
