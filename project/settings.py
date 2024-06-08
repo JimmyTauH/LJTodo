@@ -63,6 +63,7 @@ INSTALLED_APPS = (
     "dal",
     "dal_select2",
     "simple_deploy",
+    "calender", # if has calender app
 )
 
 # Static files and uploads
