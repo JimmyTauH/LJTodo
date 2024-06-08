@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92743dff-7202-4a2f-b50f-0cba58583dd9" name="Changes" comment="Update requirements.txt">
-      <change afterPath="$PROJECT_DIR$/.venv.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/安装和配置文档.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/LJTodo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LJTodo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +73,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Mick\PycharmProjects\LJTodo\project\" />
       <recent name="C:\Users\Mick\PycharmProjects\LJTodo\project\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mick\PycharmProjects\LJTodo\docs" />
     </key>
   </component>
   <component name="RunManager" selected="Django Server.LJTodo">
@@ -183,7 +182,7 @@
       <workItem from="1717400758112" duration="3849000" />
       <workItem from="1717405066117" duration="1471000" />
       <workItem from="1717503082670" duration="5132000" />
-      <workItem from="1717851342252" duration="1002000" />
+      <workItem from="1717851342252" duration="1433000" />
     </task>
     <task id="LOCAL-00001" summary="Update requirements.txt">
       <option name="closed" value="true" />
