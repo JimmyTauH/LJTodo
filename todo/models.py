@@ -10,7 +10,7 @@ from django.db import DEFAULT_DB_ALIAS, models
 from django.db.transaction import Atomic, get_connection
 from django.urls import reverse
 from django.utils import timezone
-from django.contrib.auth import User
+from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 
 def get_attachment_upload_dir(instance, filename):
@@ -188,7 +188,7 @@ class Attachment(models.Model):
 
 
 
-class Magager(models.Model):
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+# class Magager(models.Model):
+#     username = models.ForeignKey(User, on_delete=models.CASCADE)
+#     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     
