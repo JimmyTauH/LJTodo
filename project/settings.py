@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants as message_constants
 
-DEBUG = False
+DEBUG = True
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 

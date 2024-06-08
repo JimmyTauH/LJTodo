@@ -2,7 +2,9 @@ from django import forms
 from django.contrib.auth.models import Group
 from django.forms import ModelForm
 from todo.models import Task, TaskList
-
+from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 class AddTaskListForm(ModelForm):
     """The picklist showing allowable groups to which a new list can be added
@@ -85,3 +87,18 @@ class SearchForm(forms.Form):
     """Search."""
 
     q = forms.CharField(widget=forms.widgets.TextInput(attrs={"size": 35}))
+
+
+
+class UserRegistrationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError('A user with that email already exists.')
+        return email
