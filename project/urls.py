@@ -11,7 +11,7 @@ urlpatterns = (
         path("", views.login, name="login"),
         path("login", views.login, name="login"),
         path("signup", views.signup, name="signup"),
-        path("logout", auth_views.LogoutView.as_view(), name="logout"),
+        path("logout", views.logout, name="logout"),
         path("gtdadmin/", admin.site.urls),
         path("admin/", admin.site.urls),
         path("todo/", include("todo.urls", namespace="todo")),

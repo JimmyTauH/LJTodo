@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib.auth.models import User, Group
+from django.core.exceptions import PermissionDenied
 import json
+from django.shortcuts import render, redirect
 
 from todo.models import ManagerList
 
@@ -19,19 +21,24 @@ def create_group(request) -> HttpResponse:
     if request.POST:
         # User对象
         manager = request.user
+        # print(request.POST)
         groupname = request.POST.get('groupname')
+        # print(groupname)
         try:
-            group = Group.objects.create(name = groupname)
+            group, created = Group.objects.get_or_create(name = groupname)
             ManagerList.objects.create(manager = manager, group = group)
-            manager.group.add(group)
+            manager.groups.add(group)
             manager.save()
             group.save()
         except:
-            return HttpResponse(json.dumps({'result':False}), content_type='application/json')
+            # return HttpResponse(json.dumps({'result':False}), content_type='application/json')
+            raise PermissionDenied
+        
         
         # context = {"form": form}
         
-        return HttpResponse(json.dumps({'result':True}), content_type='application/json')
+    return redirect('todo:list_groups')
+
 
     # context = {"form": form}
 

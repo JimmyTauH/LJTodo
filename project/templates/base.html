@@ -18,7 +18,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/static/favicon.ico">
 
-    <title>django-todo</title>
+    <title>珞做TodoList</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -36,7 +36,7 @@
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="/">django-todo</a>
+        <a class="navbar-brand" href="/">珞做TodoList</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,13 +45,16 @@
             {% if user.is_authenticated %}
               <li class="nav-item"><a href="{% url 'todo:lists' %}" class="nav-link">To-do Lists</a></li>
               <li class="nav-item"><a href="{% url 'todo:mine' %}" class="nav-link">My Tasks</a></li>
+              <li class="nav-item"><a href="{% url 'todo:list_groups' %}" class="nav-link">Groups</a></li>
               <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Log Out</a></li>
+
               {# Simulate external user adding ticket #}
-              <li class="nav-item"><a href="{% url 'todo:external_add' %}" class="nav-link">File Ticket</a></li>
-              <li class="nav-item"><a href="{% url 'todo:import_csv' %}" class="nav-link">Import</a></li>
+              <!-- <li class="nav-item"><a href="{% url 'todo:external_add' %}" class="nav-link">File Ticket</a></li> -->
+              <!-- <li class="nav-item"><a href="{% url 'todo:import_csv' %}" class="nav-link">Import</a></li> -->
 
             {% else %}
-              <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Log In</a></li>
+              <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">登录</a></li>
+              <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link">注册</a></li>
             {% endif %}
           </ul>
 
@@ -83,7 +86,7 @@
     <footer class="footer">
       <div class="container">
         <span class="text-muted">
-          django-todo, {% now "Y" %}.
+            珞做TodoList, {% now "Y" %}.
           {% if user.is_authenticated %}Logged in as {{ user.username }}{% endif %}</span>
       </div>
     </footer>

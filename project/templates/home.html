@@ -41,7 +41,8 @@
           {% if user.is_authenticated %}
             You are already logged in.
           {% else %}
-            <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+            <a href="{% url 'login' %}" class="btn btn-primary">Sign In</a>
+            <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
           {% endif %}
         </p>
       </div>

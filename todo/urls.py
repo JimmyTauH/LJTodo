@@ -10,6 +10,7 @@ urlpatterns = [
     path("", views.list_lists, name="lists"),
     # path("signup", views.signup, name="signup"),
     path("testtest", views.list_lists, name="lists"),
+    path("group_management", views.list_groups, name="list_groups"),
     # View reorder_tasks is only called by JQuery for drag/drop task ordering.
     path("reorder_tasks/", views.reorder_tasks, name="reorder_tasks"),
     # Allow users to post tasks from outside django-todo (e.g. for filing tickets - see docs)
@@ -30,7 +31,7 @@ urlpatterns = [
         "attachment/remove/<int:attachment_id>/", views.remove_attachment, name="remove_attachment"
     ),
     path("create_group", views.create_group, name = "create_group"),
-    path("del_group", views.del_group, name = "del_group"),
+    path("del_group/<int:group_id>/", views.del_group, name = "del_group"),
     path("add_member", views.add_member, name = "add_member"),
     path("del_member", views.del_member, name = "del_member"),
 ]

@@ -1,0 +1,51 @@
+{% extends "todo/base.html" %}
+
+<!-- {% block title %}{{ list_title }} Todo Lists{% endblock %} -->
+
+{% block content %}
+
+  {% if list_slug != "mine" %}
+    <button class="btn btn-primary" id="AddTaskButton" type="button"
+      data-toggle="collapse" data-target="#AddEditTask">创建团队</button>
+
+    {# Task edit / new task form #}
+    <div id="AddEditTask" class="collapse">
+      {% include 'todo/include/group_edit.html' %}
+    </div>
+    <hr />
+  {% endif %}
+
+  {% if groups %}
+    <table class="table" id="tasktable">
+      <tr class="nodrop">
+        <th>Group ID</th>
+        <th>Group Name</th>
+      </tr>
+
+      {% for group in groups %}
+        <tr id="{{ task.id }}">
+          <td>
+              {{group.id}}
+          </td>
+          <td>
+              {{ group.name }}
+          </td>
+          <td>
+            <form method="post" action="{% url "todo:del_group" group.id %}" role="form">
+                {% csrf_token %}
+                <button class="btn btn-info btn-sm" type="submit" name="del_group">
+                  删除
+                </button>
+              </form>
+        </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+
+    {% else %}
+        <h4>No Groups</h4>
+    {% endif %}
+  
+{% endblock %}
+
