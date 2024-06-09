@@ -15,15 +15,16 @@
     <hr />
   {% endif %}
 
-  {% if groups %}
+  {% if groups_manage %}
+    <h4>你管理的团队</h4>
     <table class="table" id="tasktable">
       <tr class="nodrop">
-        <th>Group ID</th>
-        <th>Group Name</th>
+        <th>团队ID</th>
+        <th>团队名字</th>
       </tr>
 
-      {% for group in groups %}
-        <tr id="{{ task.id }}">
+      {% for group in groups_manage %}
+    <tr>
           <td>
               {{group.id}}
           </td>
@@ -38,11 +39,33 @@
                 </button>
               </form>
         </td>
-        </tr>
+    </tr>
       {% endfor %}
+
+      
     </table>
+    {% endif %}
 
+    {% if groups_in %}
+    <h4>你加入的团队</h4>
+    <table class="table" id="tasktable">
+        <tr class="nodrop">
+          <th>团队ID</th>
+          <th>团队名字</th>
+        </tr>
+      </tr>
+        {% for group in groups_in %}
+        <tr>
+            <td>
+                {{group.id}}
+            </td>
+            <td>
+                {{ group.name }}
+            </td>
+        </tr>
+        {% endfor %}
 
+    </table>
     {% else %}
         <h4>No Groups</h4>
     {% endif %}

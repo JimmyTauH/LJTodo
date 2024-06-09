@@ -10,6 +10,7 @@ from todo.forms import SearchForm
 from todo.models import Task, TaskList
 from todo.utils import staff_check
 
+from todo.utils import manager_checker
 
 @login_required
 @user_passes_test(staff_check)
@@ -20,11 +21,13 @@ def list_groups(request) -> HttpResponse:
     user = request.user
     groups = user.groups.all()
     # print(groups)
-    groups = [{"id": group.id, "name": group.name} for group in groups]
+    groups_manage = [{"id": group.id, "name": group.name} for group in groups if manager_checker(user, group)]
+    groups_in = [{"id": group.id, "name": group.name} for group in groups if not manager_checker(user, group)]
 
     # Make sure user belongs to at least one group.
     context = {
-        "groups": groups,
+        "groups_manage": groups_manage,
+        "groups_in": groups_in,
     }
 
     return render(request, "todo/list_groups.html", context)
