@@ -27,14 +27,13 @@ def add_list(request) -> HttpResponse:
                 newlist = form.save(commit=False)
                 newlist.slug = slugify(newlist.name, allow_unicode=True)
                 newlist.save()
-                messages.success(request, "A new list has been added.")
+                messages.success(request, f"成功添加任务列表 {newlist.slug} 到团队 {newlist.group.name}!")
                 return redirect("todo:lists")
 
             except IntegrityError:
                 messages.warning(
                     request,
-                    "There was a problem saving the new list. "
-                    "Most likely a list with the same name in the same group already exists.",
+                    "出错",
                 )
     else:
         if request.user.groups.all().count() == 1:

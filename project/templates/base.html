@@ -44,26 +44,24 @@
           <ul class="navbar-nav mr-auto">
             {% if user.is_authenticated %}
               <li class="nav-item"><a href="{% url 'todo:lists' %}" class="nav-link">To-do Lists</a></li>
-              <li class="nav-item"><a href="{% url 'todo:mine' %}" class="nav-link">My Tasks</a></li>
-              <li class="nav-item"><a href="{% url 'todo:list_groups' %}" class="nav-link">Groups</a></li>
-              <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Log Out</a></li>
+              <li class="nav-item"><a href="{% url 'todo:mine' %}" class="nav-link">我的任务</a></li>
+              <li class="nav-item"><a href="{% url 'todo:list_groups' %}" class="nav-link">我的团队</a></li>
+              <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">退出登录</a></li>
 
               {# Simulate external user adding ticket #}
               <!-- <li class="nav-item"><a href="{% url 'todo:external_add' %}" class="nav-link">File Ticket</a></li> -->
               <!-- <li class="nav-item"><a href="{% url 'todo:import_csv' %}" class="nav-link">Import</a></li> -->
-
+              {% if user.is_authenticated %}
+                <li class="nav-item"><a href="" class="nav-link" style="color: #F57255;">{% if user.is_authenticated %}用户：{{ user.username }}{% endif %}</a></li>
+                <li class="nav-item"><a href="" class="nav-link" style="color: #33CCF9;">{% if user.is_authenticated %}用户ID: {{ user.id }}{% endif %}</a></li>
+                {% endif %}
             {% else %}
               <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">登录</a></li>
               <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link">注册</a></li>
             {% endif %}
           </ul>
 
-          {% if user.is_authenticated %}
-      		  <form class="form-inline mt-2 mt-md-0" action="{% url 'todo:search' %}" method="get" placeholder="Search" aria-label="Search">
-              <input type="text" name="q" value="" class="form-control mr-sm-2" id="q">
-              <input type="submit" value="Search Tasks" class="btn btn-outline-success my-2 my-sm-0">
-            </form>
-          {% endif %}
+
 
         </div>
       </nav>
@@ -83,13 +81,13 @@
       {% block content %}{% endblock %}
     </main>
 
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="container">
         <span class="text-muted">
             珞做TodoList, {% now "Y" %}.
-          {% if user.is_authenticated %}Logged in as {{ user.username }}{% endif %}</span>
+          {% if user.is_authenticated %}Logged in as {{ user.username }} user ID: {{ user.id }}{% endif %}</span>
       </div>
-    </footer>
+    </footer> -->
 
     <!-- jQuery and Bootstrap core JS, plus Popper -->
     <script

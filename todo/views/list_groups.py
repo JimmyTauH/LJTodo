@@ -21,7 +21,7 @@ def list_groups(request) -> HttpResponse:
     user = request.user
     groups = user.groups.all()
     # print(groups)
-    groups_manage = [{"id": group.id, "name": group.name} for group in groups if manager_checker(user, group)]
+    groups_manage = [{"id": group.id, "name": group.name, 'members': [[member.id, member.username] for member in group.user_set.all()]} for group in groups if manager_checker(user, group)]
     groups_in = [{"id": group.id, "name": group.name} for group in groups if not manager_checker(user, group)]
 
     # Make sure user belongs to at least one group.

@@ -15,3 +15,5 @@ from todo.views.del_group import del_group
 from todo.views.add_member import add_member
 from todo.views.del_member import del_member
 from todo.views.list_groups import list_groups
+from todo.views.notin_group import notin_group
+from todo.views.quit_group import quit_group

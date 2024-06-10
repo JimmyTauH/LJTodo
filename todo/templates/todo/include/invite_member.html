@@ -1,0 +1,35 @@
+<form id="addMemberForm" method="post" action="" role="form">
+    {% csrf_token %}
+    <div class="mt-3">
+        <div class="form-group">
+            <label for="id_title" name="title">用户ID</label>
+            <input type="text" class="form-control" id="id_title" name="member_id" required placeholder="输入用户ID">
+        </div>
+        <p>
+            <button type="submit" value="invite" class="btn btn-primary" formaction="{% url "todo:add_member" group.id %}">邀请</button>
+            <button type="submit" value="kick_out" class="btn btn-primary" formaction="{% url "todo:del_member" group.id %}">踢出</button>
+        </p>
+        <ul>
+            <li>成员id ： {{ member.1 }}</li>
+
+        </ul>
+        <table class="table" id="tasktable">
+            <tr class="nodrop">
+                <th>成员ID</th>
+                <th>用户名</th>
+            </tr>
+            {% for member in group.members %}
+            <tr>
+                <td>{{ member.0 }}</td>
+                <td>{{ member.1 }}</td>
+            </tr>
+            {% endfor %}
+        
+        
+        </table>
+        
+    </div>
+</form>
+
+  
+  

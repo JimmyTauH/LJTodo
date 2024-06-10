@@ -32,7 +32,10 @@ urlpatterns = [
     ),
     path("create_group", views.create_group, name = "create_group"),
     path("del_group/<int:group_id>/", views.del_group, name = "del_group"),
-    path("add_member", views.add_member, name = "add_member"),
+    path("add_member/<int:group_id>/", views.add_member, name = "add_member"),
+    path("del_member/<int:group_id>/", views.del_member, name = "del_member"),
+    path("quit_group/<int:group_id>/", views.quit_group, name = "quit_group"),
+    # path("notin_group/<int:group_id>/", views.notin_group, name = "notin_group"),
     path("del_member", views.del_member, name = "del_member"),
 ]
 

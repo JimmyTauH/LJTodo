@@ -4,11 +4,13 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, Group
 import json
-
+from django.urls import reverse
 from todo.utils import manager_checker
 
+from django.contrib import messages
+
 @login_required
-def add_member(request) -> HttpResponse:
+def add_member(request, group_id) -> HttpResponse:
     """
     创建团队，并把创建者设置为管理员
     """
@@ -20,18 +22,42 @@ def add_member(request) -> HttpResponse:
     if request.POST:
         # User对象
         manager = request.user
-        groupname = request.POST.get('groupname')
-        group = Group.objects.get(name = groupname)
+        # groupname = request.POST.get('groupname')
+        group = Group.objects.get(id = group_id)
+        member_id = request.POST.get('member_id')
+        print(member_id)
+        try:
+            member = User.objects.get(id = member_id)
+        except:
+            messages.info(request, '用户ID不存在')
+            return redirect(reverse("todo:list_groups"))
+            
         if manager_checker(manager, group):
             # 有权限添加人
-            membername = request.POST.get('member')
-            member = User.objects.get(username = membername)
-            member.group.add(group)
+            # membername = request.POST.get('member')
+            # member = User.objects.get(username = membername)
+            # member.group.add(group)
+            if member in group.user_set.all():
+                messages.info(request, f'用户 {member.username} 已在团队 {group.name} 中！')
+                return redirect(reverse("todo:list_groups"))
+                
+            try:
+                group.user_set.add(member)
+                messages.success(request, f'成功添加用户 {member.username} 到团队 {group.name}！')
+            except:
+                messages.info(request, f'用户 {member.username} 已在该组中！')
+                return redirect(reverse("todo:list_groups"))
+                
         else:
-            raise PermissionDenied
-        # context = {"form": form}
+            messages.info(request, '添加用户失败！')
+            return redirect(reverse("todo:list_groups"))
+            
+            # raise PermissionDenied
+        if member is None:
+            messages.info(request, '用户ID不存在')
+            
         
-        return HttpResponse(json.dumps({'result':True}), content_type='application/json')
+        return redirect(reverse("todo:list_groups"))
 
     # context = {"form": form}
 

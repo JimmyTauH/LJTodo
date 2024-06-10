@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92743dff-7202-4a2f-b50f-0cba58583dd9" name="Changes" comment="Update requirements.txt">
+      <change beforePath="$PROJECT_DIR$/.idea/LJTodo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LJTodo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,6 +184,7 @@
       <workItem from="1717503082670" duration="5132000" />
       <workItem from="1717851342252" duration="3860000" />
       <workItem from="1717935157963" duration="6639000" />
+      <workItem from="1717960351525" duration="1663000" />
     </task>
     <task id="LOCAL-00001" summary="Update requirements.txt">
       <option name="closed" value="true" />

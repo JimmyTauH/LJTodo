@@ -4,71 +4,86 @@
 
 {% block content %}
 
-  {% if list_slug != "mine" %}
-    <button class="btn btn-primary" id="AddTaskButton" type="button"
-      data-toggle="collapse" data-target="#AddEditTask">创建团队</button>
+{% if list_slug != "mine" %}
+<button class="btn btn-primary" id="AddTaskButton" type="button" data-toggle="collapse"
+    data-target="#AddGroup">创建团队</button>
 
-    {# Task edit / new task form #}
-    <div id="AddEditTask" class="collapse">
-      {% include 'todo/include/group_edit.html' %}
-    </div>
-    <hr />
-  {% endif %}
+{# Task edit / new task form #}
+<div id="AddGroup" class="collapse">
+    {% include 'todo/include/group_edit.html' %}
+</div>
+<hr />
+{% endif %}
 
-  {% if groups_manage %}
-    <h4>你管理的团队</h4>
-    <table class="table" id="tasktable">
-      <tr class="nodrop">
+{% if groups_manage %}
+<h4>你管理的团队</h4>
+<table class="table" id="tasktable">
+    <tr class="nodrop">
         <th>团队ID</th>
         <th>团队名字</th>
-      </tr>
+        <th>管理成员</th>
+        <th>删除团队</th>
+    </tr>
 
-      {% for group in groups_manage %}
+    {% for group in groups_manage %}
     <tr>
-          <td>
-              {{group.id}}
-          </td>
-          <td>
-              {{ group.name }}
-          </td>
-          <td>
+        <td>{{ group.id }}</td>
+        <td>{{ group.name }}</td>
+        
+
+        <td style="width: 35%;">
+            <button class="btn btn-info btn-sm" type="button" data-toggle="collapse"
+                data-target="#inviteMember{{ group.id }}" onclick="">管理成员</button>
+            <div id="inviteMember{{ group.id }}" class="collapse">
+                {% include 'todo/include/invite_member.html' %}
+            </div>
+        </td>
+        <td>
             <form method="post" action="{% url "todo:del_group" group.id %}" role="form">
                 {% csrf_token %}
-                <button class="btn btn-info btn-sm" type="submit" name="del_group">
-                  删除
-                </button>
-              </form>
+                <button class="btn btn-info btn-sm" type="submit" name="del_group">删除团队</button>
+            </form>
         </td>
     </tr>
-      {% endfor %}
+    <tr>
 
-      
-    </table>
-    {% endif %}
+        
+    </tr>
+    {% endfor %}
 
-    {% if groups_in %}
-    <h4>你加入的团队</h4>
-    <table class="table" id="tasktable">
-        <tr class="nodrop">
-          <th>团队ID</th>
-          <th>团队名字</th>
-        </tr>
-      </tr>
-        {% for group in groups_in %}
-        <tr>
-            <td>
-                {{group.id}}
-            </td>
-            <td>
-                {{ group.name }}
-            </td>
-        </tr>
-        {% endfor %}
 
-    </table>
-    {% else %}
-        <h4>No Groups</h4>
-    {% endif %}
-  
+</table>
+{% endif %}
+
+{% if groups_in %}
+<h4>你加入的团队</h4>
+<table class="table" id="tasktable">
+    <tr class="nodrop">
+        <th>团队ID</th>
+        <th>团队名字</th>
+        <th>退出团队</th>
+    </tr>
+    {% for group in groups_in %}
+    <tr>
+        <td>
+            {{group.id}}
+        </td>
+        <td>
+            {{ group.name }}
+        </td>
+        <td>
+            <form method="post" action="{% url "todo:quit_group" group.id %}" role="form">
+                {% csrf_token %}
+                <button class="btn btn-info btn-sm" type="submit" name="quit_group">退出团队</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endif %}
+{% if not groups_in and not groups_manage %}
+<h4>您没有加入任何团队</h4>
+{% endif %}
+
 {% endblock %}
-
