@@ -52,7 +52,7 @@
               <!-- <li class="nav-item"><a href="{% url 'todo:external_add' %}" class="nav-link">File Ticket</a></li> -->
               <!-- <li class="nav-item"><a href="{% url 'todo:import_csv' %}" class="nav-link">Import</a></li> -->
               {% if user.is_authenticated %}
-                <li class="nav-item"><a href="" class="nav-link" style="color: #F57255;">{% if user.is_authenticated %}用户：{{ user.username }}{% endif %}</a></li>
+                <li class="nav-item"><a href="" class="nav-link" style="color: #F57255;">{% if user.is_superuser %} 超级管理员：{{ user.username }}{% elif user.is_authenticated %} 用户：{{ user.username }} {% endif %}</a></li>
                 <li class="nav-item"><a href="" class="nav-link" style="color: #33CCF9;">{% if user.is_authenticated %}用户ID: {{ user.id }}{% endif %}</a></li>
                 {% endif %}
             {% else %}

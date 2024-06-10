@@ -123,13 +123,13 @@ def task_detail(request, task_id: int) -> HttpResponse:
         file = request.FILES.get("attachment_file_input")
 
         if file.size > defaults("TODO_MAXIMUM_ATTACHMENT_SIZE"):
-            messages.error(request, f"File exceeds maximum attachment size.")
+            messages.error(request, f"文件大小超过最大上限。")
             return redirect("todo:task_detail", task_id=task.id)
 
         name, extension = os.path.splitext(file.name)
 
         if extension not in defaults("TODO_LIMIT_FILE_ATTACHMENTS"):
-            messages.error(request, f"This site does not allow upload of {extension} files.")
+            messages.error(request, f"网站不允许上传 {extension} 类型的文件。")
             return redirect("todo:task_detail", task_id=task.id)
 
         Attachment.objects.create(
