@@ -35,7 +35,7 @@ def toggle_done(request, task_id: int) -> HttpResponse:
             raise PermissionDenied
 
         toggle_task_completed(task.id)
-        messages.success(request, "Task status changed for '{}'".format(task.title))
+        messages.success(request, "任务'{}'状态已修改！".format(task.title))
 
         return redirect(redir_url)
 

@@ -5,7 +5,7 @@ hash = {
     "TODO_ALLOW_FILE_ATTACHMENTS": True,
     "TODO_COMMENT_CLASSES": [],
     "TODO_DEFAULT_ASSIGNEE": None,
-    "TODO_LIMIT_FILE_ATTACHMENTS": [".jpg", ".gif", ".png", ".csv", ".pdf", ".zip"],
+    "TODO_LIMIT_FILE_ATTACHMENTS": [".jpg", ".gif", ".png", ".csv", ".pdf", ".zip", ".pptx", ".ppt", ".doc", ".docx"],
     "TODO_MAXIMUM_ATTACHMENT_SIZE": 5000000,
     "TODO_PUBLIC_SUBMIT_REDIRECT": "/",
     "TODO_STAFF_ONLY": True,

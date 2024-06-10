@@ -41,7 +41,7 @@ def handle_add_comment(request, task):
         subject='New comment posted on task "{}"'.format(task.title),
     )
 
-    messages.success(request, "Comment posted. Notification email sent to thread participants.")
+    messages.success(request, "评论已发布！")
 
 
 @login_required
@@ -100,7 +100,7 @@ def task_detail(request, task_id: int) -> HttpResponse:
             item.note = bleach.clean(form.cleaned_data["note"], strip=True)
             item.title = bleach.clean(form.cleaned_data["title"], strip=True)
             item.save()
-            messages.success(request, "The task has been edited.")
+            messages.success(request, "任务已被编辑")
             return redirect(
                 "todo:list_detail", list_id=task.task_list.id, list_slug=task.task_list.slug
             )
@@ -109,7 +109,7 @@ def task_detail(request, task_id: int) -> HttpResponse:
     if request.POST.get("toggle_done"):
         results_changed = toggle_task_completed(task.id)
         if results_changed:
-            messages.success(request, f"Changed completion status for task {task.id}")
+            messages.success(request, f"任务id {task.id} 已改为完成状态")
 
         return redirect("todo:task_detail", task_id=task.id)
 
@@ -135,7 +135,7 @@ def task_detail(request, task_id: int) -> HttpResponse:
         Attachment.objects.create(
             task=task, added_by=request.user, timestamp=datetime.datetime.now(), file=file
         )
-        messages.success(request, f"File attached successfully")
+        messages.success(request, f"附件上传成功！")
         return redirect("todo:task_detail", task_id=task.id)
 
     context = {

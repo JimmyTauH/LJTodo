@@ -4,28 +4,25 @@
   {% csrf_token %}
   <div class="mt-3">
     <div class="form-group">
-      <label for="id_title" name="title">Task</label>
-      <input type="text" class="form-control" id="id_title" name="title" required placeholder="Task title"
+      <label for="id_title" name="title">任务名</label>
+      <input type="text" class="form-control" id="id_title" name="title" required placeholder="任务名"
         value="{% if form.title.value %}{{ form.title.value }}{% endif %}">
     </div>
 
     <div class="form-group">
-      <label for="id_note">Description</label>
+      <label for="id_note">描述</label>
       <textarea class="form-control" id="id_note" name="note" rows="5"
         aria-describedby="inputNoteHelp">{% if form.note.value %}{{ form.note.value }}{% endif %}</textarea>
-      <small id="inputNoteHelp" class="form-text text-muted">
-        Describe the task or bug. Provide steps to reproduce the issue.
-      </small>
     </div>
 
     <div class="form-group">
-      <label for="id_due_date">Due Date</label>
+      <label for="id_due_date">截止日期</label>
       <input type="date" class="form-control" id="id_due_date" name="due_date"
         value="{% if form.due_date.value %}{{ form.due_date.value|date:"Y-m-d" }}{% endif %}">
     </div>
 
     <div class="form-group">
-      <label for="id_assigned_to">Assigned To</label>
+      <label for="id_assigned_to">分派给</label>
       {# See todo.forms.AddEditTaskForm #}
       {{form.assigned_to}}
     </div>
@@ -34,10 +31,10 @@
       <div class="form-check">
         <input name="notify" class="form-check-input" type="checkbox" aria-describedby="inputNotifyHelp" checked="checked" id="id_notify">
         <label class="form-check-label" for="id_notify">
-          Notify
+          是否通知
         </label>
         <small id="inputNotifyHelp" class="form-text text-muted">
-          Email notifications will only be sent if task is assigned to someone other than yourself.
+          通过邮件通知（该功能尚未完成）
         </small>
       </div>
     </div>
@@ -48,7 +45,7 @@
     <input type="hidden" name="completed" class="form-check-input" type="checkbox" checked="{%if task.completed%}checked{% endif %}" id="id_completed">
 
     <p>
-      <input type="submit" name="add_edit_task" value="Submit" class="btn btn-primary">
+      <input type="submit" name="add_edit_task" value="添加任务" class="btn btn-primary">
     </p>
 
   </div>

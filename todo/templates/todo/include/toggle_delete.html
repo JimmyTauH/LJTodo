@@ -1,12 +1,12 @@
 
   {% if list_slug != "mine" %}
     {% if view_completed %}
-      <a href="{% url 'todo:list_detail' list_id list_slug %}" class="btn btn-sm btn-warning">View incomplete tasks</a>
+      <a href="{% url 'todo:list_detail' list_id list_slug %}" class="btn btn-sm btn-warning">查看未完成任务</a>
 
     {% else %}
-      <a href="{% url 'todo:list_detail_completed' list_id list_slug %}" class="btn btn-sm btn-warning">View completed tasks</a>
+      <a href="{% url 'todo:list_detail_completed' list_id list_slug %}" class="btn btn-sm btn-warning">查看已完成任务</a>
 
     {% endif %}
 
-    <a href="{% url 'todo:del_list' list_id list_slug %}" class="btn btn-sm btn-danger">Delete this list</a>
+    <a href="{% url 'todo:del_list' list_id list_slug %}" class="btn btn-sm btn-danger">删除该任务列表</a>
   {% endif %}

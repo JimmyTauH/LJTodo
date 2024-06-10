@@ -24,7 +24,7 @@ def del_list(request, list_id: int, list_slug: str) -> HttpResponse:
 
     if request.method == "POST":
         TaskList.objects.get(id=task_list.id).delete()
-        messages.success(request, "{list_name} is gone.".format(list_name=task_list.name))
+        messages.success(request, "任务列表{list_name}已删除。".format(list_name=task_list.name))
         return redirect("todo:lists")
     else:
         task_count_done = Task.objects.filter(task_list=task_list.id, completed=True).count()

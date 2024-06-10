@@ -35,7 +35,7 @@ def delete_task(request, task_id: int) -> HttpResponse:
 
         task.delete()
 
-        messages.success(request, "Task '{}' has been deleted".format(task.title))
+        messages.success(request, "任务 '{}' 已删除".format(task.title))
         return redirect(redir_url)
 
     else:

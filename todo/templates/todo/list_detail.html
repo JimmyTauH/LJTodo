@@ -7,7 +7,7 @@
 
   {% if list_slug != "mine" %}
     <button class="btn btn-primary" id="AddTaskButton" type="button"
-      data-toggle="collapse" data-target="#AddEditTask">Add Task</button>
+      data-toggle="collapse" data-target="#AddEditTask">添加任务</button>
 
     {# Task edit / new task form #}
     <div id="AddEditTask" class="collapse">
@@ -18,20 +18,20 @@
 
   {% if tasks %}
     {% if list_slug == "mine" %}
-      <h1>Tasks assigned to me (in all groups)</h1>
+      <h1>分派给我的任务</h1>
     {% else %}
-      <h1>{{ view_completed|yesno:"Completed tasks, Tasks" }} in "{{ task_list.name }}"</h1>
-      <p><small><i>In workgroup "{{ task_list.group }}" - drag rows to set priorities.</i></small></p>
+      <h1>{{ task_list.name }} 中的 {{ view_completed|yesno:"已完成任务, 未完成任务" }}</h1>
+      <p><small><i>团队"{{ task_list.group }}" - 拖动调整优先级</i></small></p>
     {% endif %}
 
       <table class="table" id="tasktable">
         <tr class="nodrop">
-          <th>Task</th>
-          <th>Created</th>
-          <th>Due on</th>
-          <th>Owner</th>
-          <th>Assigned</th>
-          <th>Mark</th>
+          <th>任务名</th>
+          <th>创建日期</th>
+          <th>截止日期</th>
+          <th>所有者</th>
+          <th>分派给</th>
+          <th>完成</th>
         </tr>
 
         {% for task in tasks %}
@@ -58,9 +58,9 @@
                 {% csrf_token %}
                 <button class="btn btn-info btn-sm" type="submit" name="toggle_done">
                   {% if view_completed %}
-                    Not Done
+                    未完成
                   {% else %}
-                    Done
+                    完成
                   {% endif %}
                 </button>
               </form>
@@ -72,7 +72,7 @@
       {% include 'todo/include/toggle_delete.html' %}
 
   {% else %}
-    <h4>No tasks on this list yet (add one!)</h4>
+    <h4>该任务列表没有任务</h4>
     {% include 'todo/include/toggle_delete.html' %}
 
   {% endif %}
@@ -107,7 +107,7 @@
     function handleClick()
     {
         console.log(this.innerHTML);
-        this.innerHTML = (this.innerHTML == 'Add Task' ? 'Cancel' : 'Add Task');
+        this.innerHTML = (this.innerHTML == '添加任务' ? '取消' : '添加任务');
     }
     document.getElementById('AddTaskButton').onclick=handleClick;
   </script>

@@ -28,7 +28,7 @@ def remove_attachment(request, attachment_id: int) -> HttpResponse:
             raise PermissionDenied
 
         if remove_attachment_file(attachment.id):
-            messages.success(request, f"Attachment {attachment.id} removed.")
+            messages.success(request, f"附件 {attachment.id} 已删除。")
         else:
             messages.error(
                 request, f"Sorry, there was a problem deleting attachment {attachment.id}."

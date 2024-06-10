@@ -3,31 +3,31 @@
 
 {% block content %}
   {% if user.is_staff %}
-  <h1>Delete entire list: {{ task_list.name }} ?</h1>
+  <h1>确定要删除任务列表：{{ task_list.name }} ?</h1>
 
-  <p>Category tally:</p>
+  <p>任务列表信息</p>
 
   <ul>
-    <li>Incomplete: {{ task_count_undone }} </li>
-    <li>Complete: {{ task_count_done }} </li>
+    <li>未完成任务数量: {{ task_count_undone }} </li>
+    <li>已完成任务数量: {{ task_count_done }} </li>
     <li>
-      <strong>Total: {{ task_count_total }}</strong>
+      <strong>总计: {{ task_count_total }}</strong>
     </li>
   </ul>
 
-  <p> ... all of which will be irretrievably
-    <strong>blown away</strong>. Are you sure you want to do that?</p>
+  <p> 以上所有内容均将被
+    <strong>删除</strong>。你确定要删除吗？</p>
 
   <form action="" method="post" accept-charset="utf-8">
     {% csrf_token %}
     <input type="hidden" name="task_list" value="{{ task_list.id }}">
     <p>
-      <a href="{% url 'todo:list_detail' task_list.id task_list.slug %}" class="btn btn-success">Return to list: {{ task_list.name }}</a>
-      <input type="submit" name="delete-confirm" value="Do it! &rarr;" class="btn btn-danger">
+      <a href="{% url 'todo:list_detail' task_list.id task_list.slug %}" class="btn btn-success">返回任务列表：{{ task_list.name }}</a>
+      <input type="submit" name="delete-confirm" value="确定！ &rarr;" class="btn btn-danger">
     </p>
   </form>
 
 
 {% else %}
-  <p>Sorry, you don't have permission to delete lists. Please contact your group administrator.</p>
+  <p>对不起，您没有删除该任务列表的权限</p>
 {% endif %} {% endblock %}

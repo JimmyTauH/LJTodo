@@ -63,7 +63,7 @@ def list_detail(request, list_id=None, list_slug=None, view_completed=False) -> 
             ):
                 send_notify_mail(new_task)
 
-            messages.success(request, 'New task "{t}" has been added.'.format(t=new_task.title))
+            messages.success(request, '新任务 "{t}" 已添加！'.format(t=new_task.title))
             return redirect(request.path)
     else:
         # Don't allow adding new tasks on some views
