@@ -9,7 +9,7 @@ app_name = "todo"
 urlpatterns = [
     path("", views.list_lists, name="lists"),
     # path("signup", views.signup, name="signup"),
-    path("testtest", views.list_lists, name="lists"),
+    path("lists", views.list_lists, name="lists"),
     path("group_management", views.list_groups, name="list_groups"),
     # View reorder_tasks is only called by JQuery for drag/drop task ordering.
     path("reorder_tasks/", views.reorder_tasks, name="reorder_tasks"),
@@ -36,7 +36,6 @@ urlpatterns = [
     path("del_member/<int:group_id>/", views.del_member, name = "del_member"),
     path("quit_group/<int:group_id>/", views.quit_group, name = "quit_group"),
     # path("notin_group/<int:group_id>/", views.notin_group, name = "notin_group"),
-    path("del_member", views.del_member, name = "del_member"),
 ]
 
 if HAS_TASK_MERGE:

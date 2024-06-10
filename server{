@@ -1,0 +1,26 @@
+sten 80;
+	server_name 127.0.0.1;                              #访问django项目的网站
+	client_max_body_size 8m;                            #上传数据的大小限制
+	access_log /var/www/log/nginx.access.log;           #访问日志,需要事先生成这个文件
+	error_log /var/www/log/nginx.error.log;             #错误日志,需要事先生成这个文件
+	location /static/ {
+        root /home/ubuntu/webapp/django_project/;
+		expires 30d;
+    }
+	location /uploads/ {                                # 对应Django设置文件中的 MEDIA_ROOT
+        alias /home/ubuntu/webapp/django_project/;
+		expires 30d;
+    }
+    location / {
+        #动态请求交给gunicorn ，这里的端口号与下文 gunicorn 执行命令中的端口号必须一致
+		proxy_pass http://127.0.0.1:8899;
+		proxy_connect_timeout 500s;		# 超时时间设置
+		proxy_read_timeout 500s;
+		proxy_send_timeout 500s;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+

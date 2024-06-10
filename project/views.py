@@ -28,6 +28,9 @@ def signup(request) -> HttpResponse:
 
 def login(request):
     user = None
+    if request.user.is_authenticated:
+        return redirect('todo:lists')    
+        
     if request.method == 'POST':        
         username = request.POST.get('username')        
         password = request.POST.get('password')        
