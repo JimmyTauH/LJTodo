@@ -1,0 +1,18 @@
+{# Form used by both Add Task and Edit Task views #}
+
+<form action="create_group" name="create_group" method="post">
+  {% csrf_token %}
+  <div class="mt-3">
+    <div class="form-group">
+      <label for="id_title" name="title">团队</label>
+      <input type="text" class="form-control" id="id_title" name="groupname" required placeholder="团队名称"
+        value="{% if form.title.value %}{{ form.title.value }}{% endif %}">
+    </div>
+    <p>
+      <input type="submit" name="create_group" value="提交" class="btn btn-primary">
+    </p>
+
+  </div>
+</form>
+
+
